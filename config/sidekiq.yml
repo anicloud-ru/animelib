@@ -1,0 +1,7 @@
+schedule:
+  hello_world:
+    cron: '0 10 17 * * *'
+    class: HashtagsSort
+    queue: default
+:queues:
+  - [default, 1]

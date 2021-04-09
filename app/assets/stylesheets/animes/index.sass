@@ -1,0 +1,29 @@
+@import "colors"
+
+.animes-list
+  &::after
+    clear: left
+    content: " "
+    display: block
+
+.animes-list-item
+  width: 24%
+  display: block
+  float: left
+  margin-left: 0.8%
+  margin-bottom: 10px
+  text-align: center
+  font-size: 18px
+  &:hover
+    color: $default_hover_text_color
+    text-decoration: underline
+  & > div > img
+    display: inherit
+    width: 60%
+    margin: 0 auto
+    border: 2px solid $default_text_color
+    border-radius: 5px
+  &:hover > div > img
+    border: 2px solid $default_hover_text_color
+  &:nth-child(4n)
+    margin-right: 0.8%

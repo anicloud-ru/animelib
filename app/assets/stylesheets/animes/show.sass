@@ -1,0 +1,58 @@
+@import "colors"
+
+.anime-card
+  &::after
+    clear: left
+    content: ""
+    display: block
+
+.anime-card-name
+  margin: 0 12.5% 10px 3.5%
+  font-size: 24px
+  font-weight: bold
+  float: left
+  &:hover
+    color: $default_hover_text_color
+    text-decoration: underline
+    cursor: pointer
+
+.anime-card-hashtags
+  float: left
+  padding: 6px
+
+.anime-card-hashtags-hashtag
+  float: left
+  font-size: 18px
+  background-color: #000
+  border-radius: 5px
+  opacity: 80%
+  margin-right: 9px
+
+.anime-card-info-img
+  img
+    width: 75%
+    margin: 0 12.5%
+    border: 2px solid $default_text_color
+    border-radius: 5px
+    &:hover
+      border-color: $default_hover_text_color
+      cursor: pointer
+  width: 25%
+  clear: left
+  float: left
+
+.anime-card-info-description, .anime-card-info-genres, .anime-card-info-age_rating
+  float: left
+  width: 72%
+  margin-left: 2%
+  padding-right: 2px
+  padding-bottom: 15px
+  border-right: 2px solid $default_text_color
+  text-align: right
+  &:hover
+    border-color: $default_hover_text_color
+
+.anime-card-info-header
+  font-weight: bold
+  width: 100%
+  text-align: right

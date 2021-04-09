@@ -1,0 +1,32 @@
+ru:
+  activerecord:
+    attributes:
+      anime:
+        canonical: Официальное название
+        russian: Русское название
+        optionally: Опциональное название
+        kind: Тип
+        status: Статус
+        episodes_number: Количество эпизодов
+        age_rating: Возрастной рейтинг
+        description: Описание
+        genre: Жанр
+        genres: Жанры
+  enumerize:
+    anime:
+      age_rating:
+        g: G
+        pg: PG
+        pg_13: PG-13
+        r: R-17
+        r_plus: R+
+        rx: Rx
+        none: Нет
+        hint:
+          none: Нет рейтинга
+          g: Возрастные ограничения отсутствуют
+          pg: Рекомендуется присутствие родителей
+          pg_13: Детям до 13 лет просмотр не желателен
+          r: Лицам до 17 лет обязательно присутствие взрослого
+          r_plus: Лицам до 17 лет просмотр запрещён
+          rx: Хентай

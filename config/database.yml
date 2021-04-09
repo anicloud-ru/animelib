@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  template: template0
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: animelib_development
+  username: animelib_development
+  password: <%= ENV['DBPASS'] %>
+
+test:
+  <<: *default
+  database: animelib_test
+  username: animelib_test
+  password: <%= ENV['DBPASS'] %>

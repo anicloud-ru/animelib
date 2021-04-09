@@ -1,0 +1,3 @@
+describe Anime do
+
+end

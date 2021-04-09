@@ -1,0 +1,31 @@
+.anime-card
+  .anime-card-name
+    = @anime.canonical
+  .anime-card-hashtags
+    - @anime.hashtags.each do |h|
+      a href=animes_path(:hashtag=>h.id)
+        .anime-card-hashtags-hashtag
+          | ##{h.name}
+  .anime-card-info
+    .anime-card-info-img
+      img src="https://static2.aniimg.com/upload/20170506/149/U/z/y/UzyDEF.jpg" alt=""
+    .anime-card-info-description
+      .anime-card-info-header
+        = Anime.human_attribute_name(:description)
+      div
+        = @anime.description_ru
+    .anime-card-info-genres
+      .anime-card-info-header
+        = Anime.human_attribute_name('genre'.pluralize(@anime.genres.count))
+      div
+        - @anime.genres.each do |g|
+          div
+            = link_to g.russian.capitalize, animes_path(:genre=>g.id)
+    .anime-card-info-age_rating
+      .anime-card-info-header
+        = Anime.human_attribute_name(:age_rating)
+      div
+        span[
+          data-tooltip=t("enumerize.anime.age_rating.hint.#{@anime.age_rating}")
+        ] = link_to @anime.age_rating_text, animes_path(:age_rating=>@anime.age_rating)
+        .default-tooltip

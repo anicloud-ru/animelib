@@ -1,0 +1,5 @@
+perform:
+	every: ["30s"]
+	class: HashtagsSort
+	queue: default
+	description: "This job will create Aggregate data."

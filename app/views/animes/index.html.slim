@@ -1,0 +1,11 @@
+h1 Все аниме
+.animes-list
+  - @animes.each do |a|
+    a.animes-list-item[
+      href=anime_path(:id => a.id)
+    ]
+      div
+        img src="https://static2.aniimg.com/upload/20170506/149/U/z/y/UzyDEF.jpg" alt=""
+      = a.canonical
+
+== pagy_nav(@pagy)

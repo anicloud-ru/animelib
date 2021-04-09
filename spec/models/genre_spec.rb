@@ -1,0 +1,3 @@
+describe Genre do
+
+end
