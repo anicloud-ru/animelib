@@ -22,6 +22,7 @@ gem 'rails-i18n'
 gem 'sidekiq'
 gem 'sidekiq-scheduler'
 gem 'dotenv'
+gem 'unicorn'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
