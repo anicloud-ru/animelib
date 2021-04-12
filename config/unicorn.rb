@@ -4,7 +4,6 @@ app_root = "/home/devops/#{app_name}"
 worker_processes 16
 timeout 30
 listen "#{app_root}/tmp/sockets/unicorn.socket", backlog: 4096
-user 'krain0v'
 working_directory app_root
 
 stderr_path "#{app_root}/log/unicorn.error.log"
