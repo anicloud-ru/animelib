@@ -1,6 +1,8 @@
 class Anime < ApplicationRecord
 
   enumerize :age_rating, in: Types::Anime::AGE_RATING.values
+  enumerize :status, in: Types::Anime::STATUS.values
+  enumerize :kind, in: Types::Anime::KIND.values
 
   def genres
     ids = self.genres_ids.to_a
