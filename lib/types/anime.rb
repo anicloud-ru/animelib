@@ -9,7 +9,7 @@ module Types
       .enum(*AGE_RATINGS)
     KIND = Types::Strict::String
       .constructor(&:to_s)
-      .enum(*KIND)
+      .enum(*KINDS)
     STATUS = Types::Strict::String
       .constructor(&:to_s)
       .enum(*STATUSES)
