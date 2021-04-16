@@ -2,7 +2,7 @@ require_relative "boot"
 
 require "rails/all"
 
-require_relative '../lib/i18n'
+require_relative '../lib/i18n_lib'
 
 Bundler.require(*Rails.groups)
 
@@ -19,7 +19,7 @@ module Animelib
     config.i18n.default_locale = :ru
     config.i18n.locale = :ru
     config.i18n.available_locales = %i[ru en]
-    config.i18n.load_path += Dir[Rails.root.join('config/locales/**/*.yml')]
+    config.i18n.load_path += Dir["#{config.root}/locales/**/*.yml"]
 
     config.generators.template_engine :slim
     config.generators.stylesheets false

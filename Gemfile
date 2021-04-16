@@ -17,6 +17,8 @@ gem 'simple_form'
 gem 'pagy'
 gem 'attr_extras'
 gem 'dry-types'
+gem 'dry-struct'
+gem 'dry-validation'
 gem 'enumerize'
 gem 'rails-i18n'
 gem 'sidekiq'
@@ -37,13 +39,18 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'selenium-webdriver'
-  gem 'rspec-rails'
+  gem 'database_cleaner'
+  gem 'factory_bot_rails'
+  gem 'fuubar'
+  gem 'rails-controller-testing'
+  gem 'rspec-collection_matchers'
   gem 'rspec-core'
   gem 'rspec-expectations'
+  gem 'rspec-its'
   gem 'rspec-mocks'
-  gem 'rspec-support'
-  gem 'webdrivers'
+  gem 'rspec-rails'
+  gem 'rspec_junit_formatter'
+  gem 'shoulda-matchers'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

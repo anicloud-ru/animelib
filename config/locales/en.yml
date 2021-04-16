@@ -2,22 +2,22 @@
 # and are automatically loaded by Rails. If you want to use locales other
 # than English, add the necessary files in this directory.
 #
-# To use the locales, use `I18n.t`:
+# To use the locales, use `I18nLib.t`:
 #
-#     I18n.t 'hello'
+#     I18nLib.t 'hello'
 #
 # In views, this is aliased to just `t`:
 #
 #     <%= t('hello') %>
 #
-# To use a different locale, set it with `I18n.locale`:
+# To use a different locale, set it with `I18nLib.locale`:
 #
-#     I18n.locale = :es
+#     I18nLib.locale = :es
 #
 # This would use the information in config/locales/es.yml.
 #
 # The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
+# the default I18nLib backend:
 #
 # true, false, on, off, yes, no
 #

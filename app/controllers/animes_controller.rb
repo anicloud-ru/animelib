@@ -29,7 +29,16 @@ class AnimesController < ApplicationController
     params.require(:anime).permit(
       :canonical,
       :russian,
-      :optionally
+      :optionally,
+      :kind,
+      :status,
+      :episodes_number,
+      :age_rating,
+      :description_ru,
+      :description_en,
+      :duration,
+      :score,
+      :franchise
     )
   end
 end

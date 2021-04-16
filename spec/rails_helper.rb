@@ -1,19 +1,41 @@
-require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
-require File.expand_path('../config/environment', __dir__)
-abort("The Rails environment is running in production mode!") if Rails.env.production?
+require 'spec_helper'
+require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
+require 'factory_bot_rails'
+require 'shoulda/matchers'
 
-begin
-  ActiveRecord::Migration.maintain_test_schema!
-rescue ActiveRecord::PendingMigrationError => e
-  puts e.to_s.strip
-  exit 1
+Capybara.ignore_hidden_elements = false
+
+ActiveRecord::Migration.maintain_test_schema!
+
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
+  end
 end
 
 RSpec.configure do |config|
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!
+  config.render_views
   config.filter_rails_from_backtrace!
+  config.include FactoryBot::Syntax::Methods
+
+  config.before :each do
+    if respond_to?(:controller) && controller
+      allow(controller)
+        .to receive(:default_url_options)
+              .and_return ApplicationController.default_url_options
+    end
+  end
+
+  config.after :each do
+    if respond_to?(:controller) && controller
+      controller.params.delete_if { true }
+    end
+  end
+
+  Rails.application.routes.default_url_options = ApplicationController.default_url_options
 end
