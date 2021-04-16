@@ -1,6 +1,6 @@
 .anime-card
   .anime-card-name
-    = @anime.canonical | @anime.russian
+    | #{@anime.canonical} | #{@anime.russian}
   .anime-card-hashtags
     - @anime.hashtags.each do |h|
       a href=animes_path(:hashtag=>h.id)
