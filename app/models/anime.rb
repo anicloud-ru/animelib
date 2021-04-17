@@ -17,7 +17,9 @@ class Anime < ApplicationRecord
     ids.each do |i|
       id = klass.classify.constantize.find(i)
       r.push(id)
-      klass == "Hashtag" ? id.searches_increase : break
+      if klass == "Hashtag"
+        id.searches_increase
+      end
     end
     r
   end
