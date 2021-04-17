@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_20_103117) do
+ActiveRecord::Schema.define(version: 2021_04_17_141346) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,16 @@ ActiveRecord::Schema.define(version: 2021_03_20_103117) do
     t.string "franchise"
     t.string "fandubbers", array: true
     t.integer "hashtags_ids", array: true
+  end
+
+  create_table "arcs", force: :cascade do |t|
+    t.string "name"
+    t.integer "number"
+    t.integer "series", array: true
+    t.bigint "anime_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["anime_id"], name: "index_arcs_on_anime_id"
   end
 
   create_table "genres", force: :cascade do |t|

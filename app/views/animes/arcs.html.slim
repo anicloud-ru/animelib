@@ -1,0 +1,13 @@
+.anime-card-arcs
+  .anime-card-arcs-name
+    = link_to "#{@anime.canonical} | #{@anime.russian}", @anime
+  .anime-card-arcs-pagename
+    | Сюжетные Арки
+  .anime-card-arcs-list
+    - @anime.arcs.each do |a|
+      a.anime-card-arc[
+        href="/animes/#{a.anime_id}/arcs/#{a.number}"
+      ]
+        img src="#{a.poster_url}" width="250px"
+        .anime-card-arc-name
+          | #{a.name} - с #{a.series.first} по #{a.series.last} серию

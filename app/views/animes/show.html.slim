@@ -29,3 +29,11 @@
           data-tooltip=t("enumerize.anime.age_rating.hint.#{@anime.age_rating}")
         ] = link_to @anime.age_rating_text, animes_path(:age_rating=>@anime.age_rating)
         .default-tooltip
+    - if @anime.arcs.present?
+      .anime-card-info-arcs
+        .anime-card-info-header
+          =link_to Anime.human_attribute_name(:arcs), arcs_anime_path
+        div
+          - @anime.arcs.each do |a|
+            .anime-card-watch-arc
+              = a.name

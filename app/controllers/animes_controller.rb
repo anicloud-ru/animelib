@@ -24,6 +24,14 @@ class AnimesController < ApplicationController
     redirect_to @anime
   end
 
+  def arc
+    anime
+  end
+
+  def arcs
+    anime
+  end
+
   def create
     @anime = Anime.new(anime_params)
 

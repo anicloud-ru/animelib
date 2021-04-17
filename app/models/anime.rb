@@ -1,4 +1,5 @@
 class Anime < ApplicationRecord
+  has_many :arcs
 
   enumerize :age_rating, in: Types::Anime::AGE_RATING.values
   enumerize :status, in: Types::Anime::STATUS.values

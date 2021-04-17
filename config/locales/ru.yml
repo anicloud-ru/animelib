@@ -1,5 +1,8 @@
 ru:
   activerecord:
+    models:
+      anime: Аниме
+      arc: Арка
     attributes:
       anime:
         canonical: Официальное название
@@ -17,6 +20,10 @@ ru:
         duration: Длительность серии
         score: Оценка пользователей
         franchise: Франшиза
+        arcs: Сюжетные арки
+      arc:
+        name: Название
+        anime_id: Аниме
   enumerize:
     anime:
       age_rating:

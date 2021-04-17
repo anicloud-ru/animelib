@@ -9,7 +9,7 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-$(document).ready(function() {
+$(document).on('turbolinks:load', () => {
     $("[data-tooltip]").mousemove(function (eventObject) {
         let data_tooltip = $(this).attr("data-tooltip")
         $(".default-tooltip").text(data_tooltip).css({

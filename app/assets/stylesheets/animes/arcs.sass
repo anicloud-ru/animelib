@@ -1,0 +1,40 @@
+@import "colors"
+
+.anime-card-arcs, .anime-card-arcs-name, .anime-card-arcs-pagename, .anime-card-arc
+  &::after
+    clear: left
+    content: ""
+    display: block
+
+.anime-card-arcs-name, .anime-card-arcs-pagename
+  margin: 0 12.5% 10px 3.5%
+  font-size: 24px
+  font-weight: bold
+  float: left
+  clear: left
+  &:hover
+    color: $default_hover_text_color
+    text-decoration: underline
+    cursor: pointer
+
+.anime-card-arcs-list
+  margin: 0 12.5% 10px 3.5%
+  font-size: 24px
+  font-weight: bold
+
+.anime-card-arc
+  float: left
+  margin-left: 10px
+  width: 24%
+  img
+    border: 2px solid $default_text_color
+    border-radius: 5px
+    &:hover
+      border-color: $default_hover_text_color
+      cursor: pointer
+  &:hover
+    color: $default_hover_text_color
+    text-decoration: underline
+    cursor: pointer
+  &:first-child
+    clear: both
