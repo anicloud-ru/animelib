@@ -4,6 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.6'
 
 gem 'rails'
+gem 'aws-sdk-s3'
 gem 'pg'
 gem 'puma'
 gem 'sass-rails'

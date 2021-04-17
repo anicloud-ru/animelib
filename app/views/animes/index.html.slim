@@ -5,7 +5,7 @@ h1 Все аниме
       href=anime_path(:id => a.id)
     ]
       div
-        img src="https://static2.aniimg.com/upload/20170506/149/U/z/y/UzyDEF.jpg" alt=""
+        img src="#{a.poster_url}" alt=""
       = a.canonical
 
 == pagy_nav(@pagy)

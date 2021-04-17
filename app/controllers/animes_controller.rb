@@ -7,11 +7,21 @@ class AnimesController < ApplicationController
   end
 
   def show
-    @anime = Anime.find(params[:id])
+    anime
   end
 
   def new
     @anime = Anime.new
+  end
+
+  def edit
+    anime
+  end
+
+  def update
+    anime
+    @anime.update(anime_params)
+    redirect_to @anime
   end
 
   def create
@@ -25,6 +35,10 @@ class AnimesController < ApplicationController
   end
 
   private
+  def anime
+    @anime = Anime.find(params[:id])
+  end
+
   def anime_params
     params.require(:anime).permit(
       :canonical,

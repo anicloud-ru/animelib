@@ -13,7 +13,9 @@ module Animelib
     config.autoload_paths += Dir["#{config.root}/app/**"]
     config.autoload_paths += Dir["#{config.root}/app/lib/**"]
     config.paths.add 'lib', eager_load: true
-
+    Aws.config.update(
+      endpoint: "https://storage.yandexcloud.net"
+    )
     config.time_zone = 'Europe/Moscow'
     I18n.enforce_available_locales = true
     config.i18n.default_locale = :ru

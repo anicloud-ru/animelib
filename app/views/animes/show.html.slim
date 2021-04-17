@@ -8,7 +8,7 @@
           | ##{h.name}
   .anime-card-info
     .anime-card-info-img
-      img src="https://static2.aniimg.com/upload/20170506/149/U/z/y/UzyDEF.jpg" alt=""
+      img src="#{@anime.poster_url}" alt=""
     .anime-card-info-description
       .anime-card-info-header
         = Anime.human_attribute_name(:description)
