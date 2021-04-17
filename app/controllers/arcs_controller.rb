@@ -7,7 +7,7 @@ class ArcsController < ApplicationController
     @arc = Arc.new(arc_params)
 
     if @arc.save
-      redirect_to arcs_animes
+      redirect_to arcs_anime_path(:id => @arc.anime_id)
     else
       render 'arcs/new'
     end
@@ -15,7 +15,7 @@ class ArcsController < ApplicationController
 
   private
   def arc_params
-    params.require(:anime).permit(
+    params.require(:arc).permit(
       :name,
       :number,
       :series,
