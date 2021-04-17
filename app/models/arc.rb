@@ -1,8 +1,8 @@
 class Arc < ApplicationRecord
   belongs_to :anime
 
-  def series_number
-    self.series.last - self.series.first + 1
+  def episodes_number
+    self.episodes.last - self.episodes.first + 1
   end
 
   def poster_url

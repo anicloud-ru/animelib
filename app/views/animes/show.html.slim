@@ -36,4 +36,4 @@
         div
           - @anime.arcs.each do |a|
             .anime-card-watch-arc
-              = a.name
+              = link_to a.russian, "#{a.anime_id}/arcs/#{a.number}"

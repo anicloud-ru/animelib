@@ -1,6 +1,7 @@
 describe Anime do
   describe 'relations' do
     it {is_expected.to have_many(:arcs)}
+    it {is_expected.to have_many(:episodes)}
   end
   describe 'enumerize' do
     it {is_expected.to enumerize(:kind).in(*Types::Anime::KIND.values)}

@@ -1,6 +1,7 @@
 = simple_form_for @arc do |f|
-  = f.input :name
+  = f.input :russian
+  = f.input :canonical
   = f.input :number
-  = f.input :series, as: :string, placeholder: "{}"
+  = f.input :episodes, as: :string, placeholder: "{}"
   = f.input :anime_id
   = f.submit

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_17_141346) do
+ActiveRecord::Schema.define(version: 2021_04_17_175924) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,13 +38,24 @@ ActiveRecord::Schema.define(version: 2021_04_17_141346) do
   end
 
   create_table "arcs", force: :cascade do |t|
-    t.string "name"
+    t.string "russian"
     t.integer "number"
-    t.integer "series", array: true
+    t.integer "episodes", array: true
     t.bigint "anime_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "canonical"
     t.index ["anime_id"], name: "index_arcs_on_anime_id"
+  end
+
+  create_table "episodes", force: :cascade do |t|
+    t.string "canonical"
+    t.string "russian"
+    t.bigint "anime_id"
+    t.integer "episode"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["anime_id"], name: "index_episodes_on_anime_id"
   end
 
   create_table "genres", force: :cascade do |t|

@@ -3,6 +3,7 @@ ru:
     models:
       anime: Аниме
       arc: Арка
+      episodes: Эпизод
     attributes:
       anime:
         canonical: Официальное название
@@ -22,7 +23,10 @@ ru:
         franchise: Франшиза
         arcs: Сюжетные арки
       arc:
-        name: Название
+        canonical: Официальное название
+        russian: Русское название
+        number: Номер по счету
+        episodes: Эпизоды(с .. по ..)
         anime_id: Аниме
   enumerize:
     anime:
