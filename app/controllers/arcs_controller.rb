@@ -3,6 +3,16 @@ class ArcsController < ApplicationController
     @arc = Arc.new(anime_id: params[:id])
   end
 
+  def edit
+    @arc = Arc.where(anime_id: params[:id], number: params[:number]).first
+  end
+
+  def update
+    @arc = Arc.find(params[:id])
+    @arc.update(arc_params)
+    redirect_to arcs_anime_path(:id => @arc.anime_id)
+  end
+
   def create
     @arc = Arc.new(arc_params)
 
@@ -16,9 +26,10 @@ class ArcsController < ApplicationController
   private
   def arc_params
     params.require(:arc).permit(
-      :name,
+      :canonical,
+      :russian,
       :number,
-      :series,
+      :episodes,
       :anime_id
     )
   end

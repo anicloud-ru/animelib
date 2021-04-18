@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_17_175924) do
+ActiveRecord::Schema.define(version: 2021_04_18_202809) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,6 +73,23 @@ ActiveRecord::Schema.define(version: 2021_04_17_175924) do
     t.integer "day_searches"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "videos", force: :cascade do |t|
+    t.string "name"
+    t.string "url", default: "s3"
+    t.integer "user_id", default: 0
+    t.integer "likes", default: 0
+    t.integer "dislikes", default: 0
+    t.integer "views", default: 0
+    t.string "kind", default: "fandub"
+    t.string "status", default: "created"
+    t.string "fandub"
+    t.string "fansub"
+    t.bigint "episode_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["episode_id"], name: "index_videos_on_episode_id"
   end
 
 end

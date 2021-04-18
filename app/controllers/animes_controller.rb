@@ -36,6 +36,8 @@ class AnimesController < ApplicationController
     @anime = Anime.new(anime_params)
 
     if @anime.save
+      @arc = Arc.new(anime_id: @anime.id, canonical: "First Arc", russian: "Первая арка", episodes: "{0, 0}", number: 1)
+      @arc.save
       redirect_to @anime
     else
       render 'animes/new'
