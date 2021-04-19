@@ -15,3 +15,9 @@ test:
   database: animelib_test
   username: animelib_test
   password: <%= ENV['DBPASS'] %>
+
+production:
+  <<: *default
+  database: animelib_production
+  username: animelib_production
+  password: <%= ENV['DBPASS'] %>
