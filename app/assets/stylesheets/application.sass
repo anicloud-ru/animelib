@@ -11,8 +11,19 @@
 #animes_arcs
   @import "animes/arcs"
 
+*, ::after, ::before
+  box-sizing: border-box
+
+.input
+  display: block
+  margin-bottom: 10px
+
+.input label
+  display: inline-block
+  margin-bottom: 1px
 
 .input input, select, textarea
+  display: block
   padding: 1px 1px
   font-size: 1rem
   line-height: 1.1
@@ -21,4 +32,20 @@
   background-clip: padding-box
   border: 1px solid #ced4da
   border-radius: 3px
-  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out
+
+.btn
+  color: #212529
+  background-color: #f8f9fa
+  display: inline-block
+  font-weight: 400
+  text-align: center
+  white-space: nowrap
+  vertical-align: middle
+  user-select: none
+  border: 1px solid #f8f9fa
+  padding: .375rem .75rem
+  font-size: 1rem
+  line-height: 1.5
+  border-radius: .25rem
+  &:hover
+    cursor: pointer

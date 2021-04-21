@@ -2,6 +2,8 @@ class Anime < ApplicationRecord
   has_many :arcs
   has_many :episodes
 
+  validates :canonical, :russian, presence: true
+
   enumerize :age_rating, in: Types::Anime::AGE_RATING.values
   enumerize :status, in: Types::Anime::STATUS.values
   enumerize :kind, in: Types::Anime::KIND.values

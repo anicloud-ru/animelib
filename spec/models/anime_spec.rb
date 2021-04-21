@@ -3,6 +3,10 @@ describe Anime do
     it {is_expected.to have_many(:arcs)}
     it {is_expected.to have_many(:episodes)}
   end
+  describe 'validations' do
+    it {is_expected.to validate_presence_of :canonical}
+    it {is_expected.to validate_presence_of :russian}
+  end
   describe 'enumerize' do
     it {is_expected.to enumerize(:kind).in(*Types::Anime::KIND.values)}
     it {is_expected.to enumerize(:status).in(*Types::Anime::STATUS.values)}
