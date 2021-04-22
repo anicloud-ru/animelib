@@ -26,6 +26,7 @@ gem 'sidekiq'
 gem 'sidekiq-scheduler'
 gem 'dotenv'
 gem 'unicorn'
+gem 'paperclip'
 gem 'mini_magick'
 
 group :development, :test do
