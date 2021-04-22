@@ -8,7 +8,7 @@
           | ##{h.name}
   .anime-card-info
     .anime-card-info-img
-      img src="#{@anime.poster_url}" alt=""
+      img src="#{@anime.poster.url}" alt=""
     .anime-card-info-description
       .anime-card-info-header
         = Anime.human_attribute_name(:description)

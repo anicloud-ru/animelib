@@ -26,6 +26,8 @@ gem 'sidekiq'
 gem 'sidekiq-scheduler'
 gem 'dotenv'
 gem 'unicorn'
+gem 'paperclip'
+gem 'mini_magick'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

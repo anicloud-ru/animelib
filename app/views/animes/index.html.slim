@@ -5,7 +5,7 @@ h1 Все аниме
       href=anime_path(:id => a.id)
     ]
       div
-        img src="#{a.poster_url}" alt=""
+        img src="#{a.poster.url}" alt=""
       = a.canonical
 
 == pagy_nav(@pagy)

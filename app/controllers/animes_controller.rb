@@ -62,7 +62,8 @@ class AnimesController < ApplicationController
       :description_en,
       :duration,
       :score,
-      :franchise
+      :franchise,
+      :poster
     )
   end
 end

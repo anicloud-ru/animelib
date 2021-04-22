@@ -2,6 +2,7 @@ describe Anime do
   describe 'relations' do
     it {is_expected.to have_many(:arcs)}
     it {is_expected.to have_many(:episodes)}
+    it {is_expected.to have_one_attached(:poster)}
   end
   describe 'validations' do
     it {is_expected.to validate_presence_of :canonical}

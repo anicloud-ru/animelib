@@ -8,11 +8,7 @@ class Anime < ApplicationRecord
   enumerize :status, in: Types::Anime::STATUS.values
   enumerize :kind, in: Types::Anime::KIND.values
 
-  def poster_url
-    s3 = Aws::S3::Client.new
-    objecto = Aws::S3::Object.new(client: s3, bucket_name: 'animelib-s3-stoke', key: "anime-posters/#{id}.jpg")
-    objecto.presigned_url(:get)
-  end
+  has_one_attached :poster
 
   def gh ids, klass
     r = Array.new

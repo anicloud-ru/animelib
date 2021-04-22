@@ -7,5 +7,5 @@ Sidekiq::Web.use(Rack::Auth::Basic) do |user, password|
   # - Use & (do not use &&) so that it doesn't short circuit.
   # - Use digests to stop length information leaking
   Rack::Utils.secure_compare(::Digest::SHA256.hexdigest(user), ::Digest::SHA256.hexdigest('admin')) &
-    Rack::Utils.secure_compare(::Digest::SHA256.hexdigest(password), ::Digest::SHA256.hexdigest('admin'))
+    Rack::Utils.secure_compare(::Digest::SHA256.hexdigest(password), ::Digest::SHA256.hexdigest(ENV["DBPASS"]))
 end
