@@ -7,7 +7,7 @@ class Arc < ApplicationRecord
 
   def poster_url
     s3 = Aws::S3::Client.new
-    objecto = Aws::S3::Object.new(client: s3, bucket_name: 'animelib-s3-stoke', key: "arcs-posters/#{id}.jpg")
+    objecto = Aws::S3::Object.new(client: s3, bucket_name: Animelib::S3_BUCKET, key: "arcs-posters/#{id}.jpg")
     objecto.presigned_url(:get)
   end
 end
