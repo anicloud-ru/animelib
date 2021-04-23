@@ -21,7 +21,7 @@ class Anime < ApplicationRecord
   def poster_upload obj
     Aws::S3::Object.new(
       client: Aws::S3::Client.new,
-      bucket_name: Animelib::S3_BUCKET,
+      bucket_name: Animelib::Application::S3_BUCKET,
       key: "anime-posters/#{self.id}.jpg"
     ).upload_file(obj)
   end
@@ -29,7 +29,7 @@ class Anime < ApplicationRecord
   def poster_url
     Aws::S3::Object.new(
       client: Aws::S3::Client.new,
-      bucket_name: Animelib::S3_BUCKET,
+      bucket_name: Animelib::Application::S3_BUCKET,
       key: "anime-posters/#{id}.jpg"
     ).presigned_url(:get)
   end
