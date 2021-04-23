@@ -1,4 +1,6 @@
 class Anime < ApplicationRecord
+  MAX_SIZE_OF_POSTER = 2097152
+
   has_many :arcs
   has_many :episodes
 
@@ -8,7 +10,29 @@ class Anime < ApplicationRecord
   enumerize :status, in: Types::Anime::STATUS.values
   enumerize :kind, in: Types::Anime::KIND.values
 
-  has_one_attached :poster
+  def poster=(obj)
+    @poster = obj
+  end
+
+  def poster
+    @poster
+  end
+
+  def poster_upload obj
+    Aws::S3::Object.new(
+      client: Aws::S3::Client.new,
+      bucket_name: 'animelib-s3-stoke',
+      key: "anime-posters/#{self.id}.jpg"
+    ).upload_file(obj)
+  end
+
+  def poster_url
+    Aws::S3::Object.new(
+      client: Aws::S3::Client.new,
+      bucket_name: 'animelib-s3-stoke',
+      key: "anime-posters/#{id}.jpg"
+    ).presigned_url(:get)
+  end
 
   def gh ids, klass
     r = Array.new
