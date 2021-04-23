@@ -18,7 +18,7 @@ module Animelib
     )
     if ENV["RAILS_ENV"] == 'development'
       S3_BUCKET = "animelib-s3-stoke"
-    elsif ENV["RAILS_ENV"] == 'production'
+    else
       S3_BUCKET = "animelib"
     end
     config.time_zone = 'Europe/Moscow'
