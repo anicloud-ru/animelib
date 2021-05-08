@@ -54,6 +54,12 @@ class AnimesController < ApplicationController
   end
 
   private
+  def arc_create
+    @arc = Arc.new(anime_id: @anime.id, canonical: "First Arc", russian: "Первая арка", episodes: "{0, 0}", number: 1)
+    @arc.save
+    redirect_to @anime
+  end
+
   def anime
     @anime = Anime.find(params[:id])
   end
