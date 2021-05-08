@@ -1,5 +1,5 @@
 app_name = 'animelib'
-app_root = "/home/devops/#{app_name}"
+app_root = "/root/#{app_name}"
 
 worker_processes 16
 timeout 30
