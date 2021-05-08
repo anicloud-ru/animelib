@@ -38,15 +38,16 @@ class AnimesController < ApplicationController
 
   def create
     @anime = Anime.new(anime_params)
-    if params[:anime][:poster].size < Anime::MAX_SIZE_OF_POSTER && params[:anime][:poster].headers.match?(/(Content-Type: image\/(jpeg|png))/)
+    poster = params[:anime][:poster]
+    if !poster.nil? &&
+      (poster.size < Anime::MAX_SIZE_OF_POSTER) &&
+      (poster.headers.match?(/(Content-Type: image\/(jpeg|png))/)) && @anime.save
+      if @anime.poster_upload(@anime.poster)
+        arc_create
+      end
+    elsif poster.nil?
       if @anime.save
-        if @anime.poster_upload(@anime.poster)
-          @arc = Arc.new(anime_id: @anime.id, canonical: "First Arc", russian: "Первая арка", episodes: "{0, 0}", number: 1)
-          @arc.save
-          redirect_to @anime
-        end
-      else
-        render 'animes/new'
+        arc_create
       end
     else
       render 'animes/new'
