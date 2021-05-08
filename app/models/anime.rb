@@ -19,19 +19,17 @@ class Anime < ApplicationRecord
   end
 
   def poster_upload obj
-    Aws::S3::Object.new(
-      client: Aws::S3::Client.new,
-      bucket_name: Animelib::Application::S3_BUCKET,
-      key: "anime-posters/#{self.id}.jpg"
-    ).upload_file(obj)
+    s3obj("anime-posters/#{self.id}.jpg").upload_file(obj)
   end
 
   def poster_url
-    Aws::S3::Object.new(
-      client: Aws::S3::Client.new,
-      bucket_name: Animelib::Application::S3_BUCKET,
-      key: "anime-posters/#{id}.jpg"
-    ).presigned_url(:get)
+    obj = s3obj("anime-posters/#{id}.jpg")
+    if obj.exists?
+      obj.presigned_url(:get)
+    else
+      s3obj("anime-posters/no-poster.jpg").presigned_url(:get)
+    end
+
   end
 
   def gh ids, klass
@@ -52,5 +50,14 @@ class Anime < ApplicationRecord
 
   def hashtags
     gh self.hashtags_ids.to_a, "Hashtag"
+  end
+
+  private
+  def s3obj(key)
+    Aws::S3::Object.new(
+      client: Aws::S3::Client.new,
+      bucket_name: Animelib::Application::S3_BUCKET,
+      key: key
+    )
   end
 end
