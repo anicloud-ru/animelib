@@ -27,6 +27,8 @@ gem 'sidekiq-scheduler'
 gem 'dotenv'
 gem 'unicorn'
 gem 'mini_magick'
+gem "sentry-ruby"
+gem "sentry-rails"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
