@@ -6,9 +6,9 @@ class Anime < ApplicationRecord
 
   validates :canonical, :russian, presence: true
 
-  enumerize :age_rating, in: Types::Anime::AGE_RATING.values
-  enumerize :status, in: Types::Anime::STATUS.values
-  enumerize :kind, in: Types::Anime::KIND.values
+  enumerize :age_rating, in: Types::Anime::AGE_RATING.values, predicates: { prefix: true }
+  enumerize :status, in: Types::Anime::STATUS.values, predicates: { prefix: true }
+  enumerize :kind, in: Types::Anime::KIND.values, predicates: { prefix: true }
 
   def poster=(obj)
     @poster = obj
@@ -25,7 +25,13 @@ class Anime < ApplicationRecord
   def poster_url
     obj = s3obj("anime-posters/#{id}.jpg")
     if obj.exists?
-      obj.presigned_url(:get)
+      r = Redis.new(path: '/var/run/redis.socket')
+      uri = r.get("poster:#{id}")
+      if uri.nil?
+        uri = obj.presigned_url(:get, expires_in: 3600)
+        r.set("poster:#{id}", uri, ex: 3500)
+      end
+      uri
     else
       s3obj("anime-posters/no-poster.jpg").presigned_url(:get)
     end
