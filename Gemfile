@@ -29,6 +29,8 @@ gem 'unicorn'
 gem 'mini_magick'
 gem "sentry-ruby"
 gem "sentry-rails"
+gem 'redis-rails'
+gem 'redis-rack-cache'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

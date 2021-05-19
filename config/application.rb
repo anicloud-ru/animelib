@@ -21,6 +21,9 @@ module Animelib
     else
       S3_BUCKET = "animelib"
     end
+    config.cache_store = :redis_cache_store, {
+      path: "/var/run/redis.socket"
+    }
     config.time_zone = 'Europe/Moscow'
     I18n.enforce_available_locales = true
     config.i18n.default_locale = :ru
