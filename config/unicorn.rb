@@ -1,8 +1,8 @@
 app_name = 'animelib'
-app_root = "/root/#{app_name}"
+app_root = "/var/www/#{app_name}"
 
-worker_processes 8
-timeout 30
+worker_processes 32
+timeout 90
 listen "#{app_root}/tmp/sockets/unicorn.socket", backlog: 4096
 working_directory app_root
 
