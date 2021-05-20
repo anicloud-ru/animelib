@@ -32,3 +32,4 @@ yarn-debug.log*
 .overmind.sock
 .env
 public/robots.txt
+public/sitemap.xml

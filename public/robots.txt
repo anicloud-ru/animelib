@@ -1,1 +1,13 @@
-# See https://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file
+User-Agent: *
+Allow: /$
+
+Allow: *.js
+Allow: *.css
+Allow: *.png
+Allow: *.jpg
+
+Allow: /sitemap.xml$
+
+Disallow: /
+
+Host: https://www.animelib.ru
