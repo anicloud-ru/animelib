@@ -2,12 +2,10 @@ doctype html
 html
   head
     title Animelib
-    meta name="viewport" content="width=device-width,initial-scale=1"
+    = render 'layouts/meta'
     = csrf_meta_tags
     = csp_meta_tag
-
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
-    script src="https://cdn.plrjs.com/player/d7ybfrhe9nh7e/3tnhk5nkzdlj.js"
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body [
     id = @layout.body_id
