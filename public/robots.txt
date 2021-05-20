@@ -1,0 +1,13 @@
+User-Agent: *
+Allow: /$
+
+Allow: *.js
+Allow: *.css
+Allow: *.png
+Allow: *.jpg
+
+Allow: /sitemap.xml$
+
+Disallow: /
+
+Host: https://www.animelib.ru
