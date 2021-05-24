@@ -2,6 +2,7 @@ ENV['RAILS_ENV'] ||= 'test'
 require 'spec_helper'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
+require 'rails-controller-testing'
 require 'factory_bot_rails'
 require 'shoulda/matchers'
 
@@ -22,6 +23,9 @@ RSpec.configure do |config|
   config.render_views
   config.filter_rails_from_backtrace!
   config.include FactoryBot::Syntax::Methods
+  #config.include Devise::Test::ControllerHelpers, type: :controller
+  #config.include JsonResponse, type: :controller
+  #config.include ControllerResource, type: :controller
 
   config.before :each do
     if respond_to?(:controller) && controller

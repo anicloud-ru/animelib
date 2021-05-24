@@ -20,10 +20,19 @@ class AnimesController < ApplicationController
 
   def update
     anime
-    if @anime.update(anime_params) && params[:anime][:poster].size < Anime::MAX_SIZE_OF_POSTER && params[:anime][:poster].headers.match?(/(Content-Type: image\/(jpeg|png))/)
+    poster = params[:anime][:poster]
+    if !poster.nil? &&
+      (poster.size < Anime::MAX_SIZE_OF_POSTER) &&
+      (poster.headers.match?(/(Content-Type: image\/(jpeg|png))/)) &&
+      (@anime.update(anime_params))
       if @anime.poster_upload(@anime.poster)
         redirect_to @anime
       end
+    elsif poster.nil? &&
+      (@anime.update(anime_params))
+      redirect_to @anime
+    else
+      render 'animes/edit'
     end
   end
 

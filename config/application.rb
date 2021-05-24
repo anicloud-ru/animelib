@@ -16,7 +16,7 @@ module Animelib
     Aws.config.update(
       endpoint: "https://storage.yandexcloud.net"
     )
-    if ENV["RAILS_ENV"] == 'development'
+    if ENV["RAILS_ENV"] == 'development' || ENV["RAILS_ENV"] == 'test'
       S3_BUCKET = "animelib-s3-stoke"
     else
       S3_BUCKET = "animelib"
