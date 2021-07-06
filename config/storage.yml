@@ -1,14 +1,13 @@
 yandex: &default
   service: S3
-  endpoint: https://storage.yandexcloud.net
+  endpoint: https://storage.googleapis.com
   access_key_id: <%= Rails.application.credentials.dig(:aws, :access_key_id) %>
   secret_access_key: <%= Rails.application.credentials.dig(:aws, :secret_access_key) %>
-  region: ru-central-1
-  bucket: animelib-s3-stoke
+  region: europe-north1
+  bucket: animelib-stoke
 
 test:
   <<: *default
-  bucket: animelib-test
 
 production:
   <<: *default

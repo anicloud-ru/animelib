@@ -14,15 +14,18 @@ module Animelib
     config.autoload_paths += Dir["#{config.root}/app/lib/**"]
     config.paths.add 'lib', eager_load: true
     Aws.config.update(
-      endpoint: "https://storage.yandexcloud.net"
+      endpoint: "https://storage.googleapis.com"
     )
     if ENV["RAILS_ENV"] == 'development' || ENV["RAILS_ENV"] == 'test'
-      S3_BUCKET = "animelib-s3-stoke"
+      S3_BUCKET = "animelib-stoke"
     else
       S3_BUCKET = "animelib"
     end
     config.cache_store = :redis_cache_store, {
-      path: "/var/run/redis.socket"
+      host: "82.146.35.188",
+      port: 6379,
+      db: 0,
+      password: ENV["REDIS_PASS"]
     }
     config.time_zone = 'Europe/Moscow'
     I18n.enforce_available_locales = true
