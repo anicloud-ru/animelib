@@ -1,14 +1,15 @@
-app_name = 'animelib'
-app_root = "/var/www/#{app_name}"
+app_name = 'animelib.ru'
+proj_root = "/home/animelib/project"
+app_root = "#{proj_root}/#{app_name}"
 
 worker_processes 32
 timeout 90
-listen "#{app_root}/tmp/sockets/unicorn.socket", backlog: 4096
+listen "#{proj_root}/sockets/unicorn.socket", backlog: 4096
 working_directory app_root
 
-stderr_path "#{app_root}/log/unicorn.error.log"
-
-pid "#{app_root}/tmp/pids/unicorn.pid"
+stderr_path "#{proj_root}/logs/unicorn.error.log"
+stdout_path "#{proj_root}/logs/unicorn.access.log"
+pid "#{proj_root}/pids/unicorn.pid"
 
 preload_app true
 
