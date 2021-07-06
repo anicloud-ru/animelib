@@ -25,7 +25,7 @@ class Anime < ApplicationRecord
   def poster_url
     obj = s3obj("anime-posters/#{id}.jpg")
     if obj.exists?
-      r = Redis.new(path: '/home/animelib/project/sockets/redis.socket')
+      r = Redis.new(path: '/home/animelib/project/sockets/redis.socket', password: ENV['REDIS_PASS'])
       uri = r.get("poster:#{id}")
       if uri.nil?
         uri = obj.presigned_url(:get, expires_in: 3600)
