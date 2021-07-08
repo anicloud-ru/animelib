@@ -1,6 +1,6 @@
 class ArcsController < ApplicationController
   def new
-    @arc = Arc.new(anime_id: params[:id])
+    @arc = Arc.new
   end
 
   def edit
