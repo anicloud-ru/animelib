@@ -5,13 +5,10 @@ Rails.application.routes.draw do
   resources :animes, only: %i[show] do
     member do
       get :arcs
-      resources :arcs, only: %i[new]
-      get 'arcs/:number/edit', action: :edit, controller: :arcs
-      get 'arcs/:number', action: :arc
     end
   end
 
-  resources :arcs, only: %i[create update]
+  resources :arcs
 
   mount Sidekiq::Web => '/sidekiq'
 end
