@@ -1,15 +1,31 @@
-app_name = 'animelib.ru'
 proj_root = "/home/animelib/project"
-app_root = "#{proj_root}/#{app_name}"
+if ENV['RAILS_ENV'] == 'production'
+  app_name = 'animelib.ru'
+  proj_root = "/home/animelib/project"
+  app_root = "#{proj_root}/#{app_name}"
 
-worker_processes 32
-timeout 90
-listen "#{proj_root}/sockets/unicorn.socket", backlog: 4096
-working_directory app_root
+  worker_processes 32
+  timeout 90
+  listen "#{proj_root}/sockets/unicorn.socket", backlog: 4096
+  working_directory app_root
 
-stderr_path "#{proj_root}/logs/unicorn.error.log"
-stdout_path "#{proj_root}/logs/unicorn.access.log"
-pid "#{proj_root}/pids/unicorn.pid"
+  stderr_path "#{proj_root}/logs/unicorn.error.log"
+  stdout_path "#{proj_root}/logs/unicorn.access.log"
+  pid "#{proj_root}/pids/unicorn.pid"
+elsif ENV['RAILS_ENV'] == 'development'
+  app_name = 'test.animelib.ru'
+  app_root = "#{proj_root}/#{app_name}"
+
+  worker_processes 2
+  timeout 90
+  listen "#{proj_root}/sockets/test.unicorn.socket", backlog: 4096
+  working_directory app_root
+
+  stderr_path "#{proj_root}/logs/test.unicorn.error.log"
+  stdout_path "#{proj_root}/logs/test.unicorn.access.log"
+  pid "#{proj_root}/pids/test.unicorn.pid"
+end
+
 
 preload_app true
 
