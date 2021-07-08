@@ -16,14 +16,14 @@ elsif ENV['RAILS_ENV'] == 'development'
   app_name = 'test.animelib.ru'
   app_root = "#{proj_root}/#{app_name}"
 
-  worker_processes 2
+  worker_processes 8
   timeout 90
-  listen "#{proj_root}/sockets/test.unicorn.socket", backlog: 4096
+  listen "#{proj_root}/sockets/testunicorn.socket", backlog: 4096
   working_directory app_root
 
-  stderr_path "#{proj_root}/logs/test.unicorn.error.log"
-  stdout_path "#{proj_root}/logs/test.unicorn.access.log"
-  pid "#{proj_root}/pids/test.unicorn.pid"
+  stderr_path "#{proj_root}/logs/testunicorn.error.log"
+  stdout_path "#{proj_root}/logs/testunicorn.access.log"
+  pid "#{proj_root}/pids/testunicorn.pid"
 end
 
 
