@@ -4,7 +4,7 @@ class ArcsController < ApplicationController
   end
 
   def edit
-    @arc = Arc.where(anime_id: params[:id], number: params[:number]).first
+    @arc = Arc.find(params[:id])
   end
 
   def update
