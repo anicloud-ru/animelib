@@ -36,11 +36,6 @@ class AnimesController < ApplicationController
     end
   end
 
-  def arc
-    anime
-    @arc = Arc.where(anime_id: params[:id], number: params[:number]).first
-  end
-
   def arcs
     anime
   end

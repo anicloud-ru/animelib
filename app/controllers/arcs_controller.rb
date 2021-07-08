@@ -13,6 +13,10 @@ class ArcsController < ApplicationController
     redirect_to arcs_anime_path(:id => @arc.anime_id)
   end
 
+  def show
+    @arc = Arc.find(params[:id])
+  end
+
   def create
     @arc = Arc.new(arc_params)
 
