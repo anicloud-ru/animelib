@@ -7,7 +7,7 @@
   .anime-card-arcs-list
     - @anime.arcs.each do |a|
       a.anime-card-arc[
-        href="/animes/#{a.anime_id}/arcs/#{a.number}"
+        href=arc_path(:id=>a.id)
       ]
         img src="#{a.poster_url}" width="250px"
         .anime-card-arc-name

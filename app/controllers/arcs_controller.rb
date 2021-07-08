@@ -10,7 +10,7 @@ class ArcsController < ApplicationController
   def update
     @arc = Arc.find(params[:id])
     @arc.update(arc_params)
-    redirect_to arcs_anime_path(:id => @arc.anime_id)
+    redirect_to arc_path(:id => @arc.id)
   end
 
   def show
