@@ -26,11 +26,14 @@ describe ArcsController do
   end
 
   describe 'POST create' do
+    let(:anime) { create :anime }
     before { post :create, params: { arc: params } }
     let(:params) do
       {
         canonical: 'test123',
-        russian: 'Тест123'
+        russian: 'Тест123',
+        number: 1,
+        anime_id: anime.id
       }
     end
     it do
