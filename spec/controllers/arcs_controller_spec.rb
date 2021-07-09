@@ -1,7 +1,6 @@
 describe ArcsController do
-  let(:anime) { create :anime }
   describe 'GET show' do
-    let(:arc) { create :arc, anime: anime.id }
+    let(:arc) { create :arc }
     it do
       get :show, params: { id: arc.id }
       expect(response).to have_http_status(:success)
@@ -10,7 +9,7 @@ describe ArcsController do
   end
 
   describe 'GET edit' do
-    let(:arc) { create :arc, anime.id }
+    let(:arc) { create :arc }
     it do
       get :edit, params: { id: arc.id }
       expect(response).to have_http_status(:success)
