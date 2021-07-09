@@ -38,7 +38,7 @@ describe ArcsController do
     end
     it do
       expect(assigns(:arc)).to be_persisted
-      expect(response).to redirect_to(assigns(:acs))
+      expect(response).to redirect_to(assigns(:arc))
     end
   end
 
