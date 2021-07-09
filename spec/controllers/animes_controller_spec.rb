@@ -54,6 +54,15 @@ describe AnimesController do
     end
   end
 
+  describe 'GET arcs' do
+    let(:anime) { create(:anime) }
+    let(:arcs) { create(:anime) }
+    it do
+      get :arcs, params: { id: anime.id }
+      expect(response).to have_http_status(:success)
+      expect(response).to render_template(:arcs)
+    end
+  end
   #describe 'DELETE destroy' do
   # before { delete :destroy, params: { id: anime.id } }
   # let(:anime) { create(:anime) }
