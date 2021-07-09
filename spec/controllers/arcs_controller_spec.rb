@@ -51,8 +51,8 @@ describe ArcsController do
     end
     before { patch :update, params: { id: arc.id, arc: params } }
     it do
-      expect(assigns(:anime).reload).to have_attributes params
-      expect(assigns(:anime).errors).to be_empty
+      expect(assigns(:arc).reload).to have_attributes params
+      expect(assigns(:arc).errors).to be_empty
       expect(response).to redirect_to(assigns(:arc))
     end
   end
