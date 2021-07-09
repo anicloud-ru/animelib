@@ -1,23 +1,27 @@
 class ArcsController < ApplicationController
   def new
-    @arc = Arc.new(anime_id: params[:id])
+    @arc = Arc.new
   end
 
   def edit
-    @arc = Arc.where(anime_id: params[:id], number: params[:number]).first
+    @arc = Arc.find(params[:id])
   end
 
   def update
     @arc = Arc.find(params[:id])
     @arc.update(arc_params)
-    redirect_to arcs_anime_path(:id => @arc.anime_id)
+    redirect_to @arc
+  end
+
+  def show
+    @arc = Arc.find(params[:id])
   end
 
   def create
     @arc = Arc.new(arc_params)
 
     if @arc.save
-      redirect_to arcs_anime_path(:id => @arc.anime_id)
+      redirect_to @arc
     else
       render 'arcs/new'
     end
