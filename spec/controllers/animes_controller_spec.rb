@@ -16,6 +16,15 @@ describe AnimesController do
     end
   end
 
+  describe 'GET edit' do
+    let(:anime) { create :anime }
+    it do
+      get :edit, params: { id: anime.id }
+      expect(response).to have_http_status(:success)
+      expect(response).to render_template(:edit)
+    end
+  end
+
   describe 'GET new' do
     it do
       get :new
@@ -56,7 +65,7 @@ describe AnimesController do
 
   describe 'GET arcs' do
     let(:anime) { create(:anime) }
-    let(:arcs) { create(:anime) }
+    let(:arcs) { create(:arc) }
     it do
       get :arcs, params: { id: anime.id }
       expect(response).to have_http_status(:success)
